@@ -1,12 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { data } = require('react-router-dom');
 
 const app = express();
 app.use(bodyParser.json());
 
 // Sample student data
-const students = data
+const students = [
+    { student_id: "1", name: "Alice Johnson", marks: { math: 85, science: 90, english: 78, history: 88, geography: 92 }, total: 433 },
+    { student_id: "2", name: "Bob Smith", marks: { math: 75, science: 80, english: 85, history: 70, geography: 100 }, total: 410 },
+    { student_id: "3", name: "Charlie Davis", marks: { math: 82, science: 85, english: 80, history: 83, geography: 85 }, total: 415 },
+    { student_id: "4", name: "David Brown", marks: { math: 60, science: 65, english: 70, history: 75, geography: 80 }, total: 350 }
+];
 
 // API Endpoint
 app.post('/students/above-threshold', (req, res) => {
